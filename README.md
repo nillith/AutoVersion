@@ -1,6 +1,7 @@
-# AutoVersion
+ï»¿# AutoVersion
 Generating versionCode and versionName automatically for Android Project With Android Studio
-*Read this in other languages: [English](README.md), [¼òÌåÖÐÎÄ](README.zh-cn.md).*
+
+*Read this in other languages: [English](README.md), [ç®€ä½“ä¸­æ–‡](README.zh-cn.md).*
 
 ### How to use
 ####1 Add gradle **buildscript** dependencies
@@ -13,7 +14,8 @@ buildscript {
     }
 }
 ```
-####2 Click Sync Project With Gradle Files button on Android Studio
+####2 Sync Project
+Click Sync Project With Gradle Files button on Android Studio
 ####3 Setup android config
 In you module level build.gradle
 ```groovy

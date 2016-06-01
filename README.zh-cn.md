@@ -1,33 +1,35 @@
-# AutoVersion
-Android Studio×Ô¶¯Éú³É°²×¿versionCodeºÍversionName
-*Read this in other languages: [English](README.md), [¼òÌåÖĞÎÄ](README.zh-cn.md).*
+ï»¿# AutoVersion
+Android Studioè‡ªåŠ¨ç”Ÿæˆå®‰å“versionCodeå’ŒversionName
 
-### Ê¹ÓÃ·½·¨
-####1 Ìí¼Ó gradle **buildscript** ÒÀÀµ
-ÔÚproject¼¶build.gradleÎÄ¼şÖĞ
+*å…¶ä»–è¯­è¨€ç‰ˆæœ¬: [English](README.md), [ç®€ä½“ä¸­æ–‡](README.zh-cn.md).*
+
+### ä½¿ç”¨æ–¹æ³•
+####1 æ·»åŠ  gradle **buildscript** ä¾èµ–
+åœ¨projectçº§build.gradleæ–‡ä»¶ä¸­
 ```groovy
 buildscript {
 	...
     dependencies {
-        classpath 'com.nillith.android:autoversion:1.0.1' // ÔÚÕâÀïÌí¼ÓautoversionÒÀÀµ
+        classpath 'com.nillith.android:autoversion:1.0.1' // åœ¨è¿™é‡Œæ·»åŠ autoversionä¾èµ–
     }
 }
 ```
-####2 µã»÷Android StudioÉÏSync Project With Gradle Files °´Å¥
-####3 ÅäÖÃandroid config£º
-ÔÚModule¼¶µÄbuild.gradleÎÄ¼şÖĞ
+####2 Sync Project
+ç‚¹å‡»Android Studioä¸ŠSync Project With Gradle Files æŒ‰é’®
+####3 é…ç½®android configï¼š
+åœ¨Moduleçº§çš„build.gradleæ–‡ä»¶ä¸­
 ```groovy
-import com.nillith.android.tools.build.version.AutoVersion // µ¼°ü
+import com.nillith.android.tools.build.version.AutoVersion // å¯¼åŒ…
 apply plugin: 'com.android.application'
 
-AutoVersion.setVersionNumber(1, 0, 0) // ·Ö±ğ´«ÈËappµÄmajor¡¢minorºÍpatch°æ±¾ºÅ(autoversionÖ»×Ô¶¯Éú³Ébuild°æ±¾ºÅ)
+AutoVersion.setVersionNumber(1, 0, 0) // åˆ†åˆ«ä¼ äººappçš„majorã€minorå’Œpatchç‰ˆæœ¬å·(autoversionåªè‡ªåŠ¨ç”Ÿæˆbuildç‰ˆæœ¬å·)
 
 android {
 ...
     defaultConfig {
         ...
-        versionCode AutoVersion.versionCode // ÉèÖÃversionCode
-        versionName AutoVersion.versionName // ÉèÖÃversionName, µÈÍ¬ÓÚ"$major.$minor.$patch.$versionCode"
+        versionCode AutoVersion.versionCode // è®¾ç½®versionCode
+        versionName AutoVersion.versionName // è®¾ç½®versionName, ç­‰åŒäº"$major.$minor.$patch.$versionCode"
 		...
     }
 	...
