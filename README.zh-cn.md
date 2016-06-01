@@ -1,5 +1,5 @@
 ﻿# AutoVersion
-Android Studio自动生成安卓versionCode和versionName
+Android Studio根据git仓库提交数自动生成安卓versionCode和versionName
 
 *其他语言版本: [English](README.md), [简体中文](README.zh-cn.md).*
 

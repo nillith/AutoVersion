@@ -1,5 +1,5 @@
 ﻿# AutoVersion
-Generating versionCode and versionName automatically for Android Project With Android Studio
+Generating versionCode and versionName automatically for Android Project With Android Studio based on git commit count
 
 *Read this in other languages: [English](README.md), [简体中文](README.zh-cn.md).*
 
