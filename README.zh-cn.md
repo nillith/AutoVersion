@@ -19,7 +19,9 @@ buildscript {
 ####3 配置android config：
 在Module级的build.gradle文件中
 ```groovy
-import com.nillith.android.tools.build.version.AutoVersion // 导包
+import com.nillith.android.tools.build.version.AutoVersion
+// 导包
+
 apply plugin: 'com.android.application'
 
 AutoVersion.setVersionNumber(1, 0, 0) // 分别传人app的major、minor和patch版本号(autoversion只自动生成build版本号)
@@ -28,7 +30,7 @@ android {
 ...
     defaultConfig {
         ...
-        versionCode AutoVersion.versionCode // 设置versionCode
+        versionCode AutoVersion.versionCode // 设置versionCode, 实际值为当前git仓库的提交数
         versionName AutoVersion.versionName // 设置versionName, 等同于"$major.$minor.$patch.$versionCode"
 		...
     }
