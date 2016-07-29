@@ -40,7 +40,7 @@ android {
 }
 ```
 
-如果工作正常，Gradle console 在 sync 时打印一下信息。
+如果工作正常，sync 时 Gradle console 会打印以下信息。
 
 ```
 AutoVersion:versionCode: xxx
