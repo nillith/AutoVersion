@@ -5,7 +5,7 @@ Generating versionCode and versionName automatically for Android Project With An
 
 ### How to use
 ####1 Add gradle **buildscript** dependencies
-In your project level build.gradle
+In your root project level build.gradle
 ```groovy
 buildscript {
 	...
