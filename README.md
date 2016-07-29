@@ -10,30 +10,41 @@ In your project level build.gradle
 buildscript {
 	...
     dependencies {
-        classpath 'com.nillith.android:autoversion:1.0.1'
+        classpath 'com.nillith.android:autoversion:1.1.0'
+        ...
     }
 }
 ```
-####2 Sync Project
-Click Sync Project With Gradle Files button on Android Studio
-####3 Setup android config
+####2 Setup android config
 In you module level build.gradle
 ```groovy
-import com.nillith.android.tools.build.version.AutoVersion
-  // import AutoVersion
 
-apply plugin: 'com.android.application'
+...
+apply plugin: 'com.nillith.autoversion'
 
-AutoVersion.setVersionNumber(1, 0, 0) // pass in VersionMajor, VersionMinor and VersionPatch.(autoversion only generate VersionBuild for you)
+autoVersion {
+    major 1
+    minor 0
+    patch 0
+    // You can also specify a build here. AutoVersion will use it instead of git commit count.
+    // build 3
+}
+
 
 android {
 ...
     defaultConfig {
         ...
-        versionCode AutoVersion.versionCode // set versionCode. Its actually the commit count of current git repo
-        versionName AutoVersion.versionName // same as "$major.$minor.$patch.$versionCode"
+        versionCode autoVersion.code // same as build. build will be the commit count of current git repo if not specified.
+        versionName autoVersion.name // same as "$major.$minor.$patch.$versionCode"
 		...
     }
 	...
 }
+```
+If doing right. Gradle console will print the following message when sync
+
+```
+AutoVersion:versionCode: xxx
+AutoVersion:versionName: x.x.x.x
 ```

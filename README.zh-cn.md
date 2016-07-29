@@ -1,5 +1,5 @@
 ﻿# AutoVersion
-Android Studio根据git仓库提交数自动生成安卓versionCode和versionName
+Android Studio根据git仓库提交数自动生成安卓versionCode和versionName。
 
 *其他语言版本: [English](README.md), [简体中文](README.zh-cn.md).*
 
@@ -14,26 +14,35 @@ buildscript {
     }
 }
 ```
-####2 Sync Project
-点击Android Studio上Sync Project With Gradle Files 按钮
-####3 配置android config：
+####2 配置android config：
 在Module级的build.gradle文件中
 ```groovy
-import com.nillith.android.tools.build.version.AutoVersion
-// 导包
+...
+apply plugin: 'com.nillith.autoversion'
 
-apply plugin: 'com.android.application'
-
-AutoVersion.setVersionNumber(1, 0, 0) // 分别传人app的major、minor和patch版本号(autoversion只自动生成build版本号)
+autoVersion {
+    major 1
+    minor 0
+    patch 0
+    // 你也可以在这里自己给定build。这样build版本号将不会自动生成。
+    // build 0
+}
 
 android {
 ...
     defaultConfig {
         ...
-        versionCode AutoVersion.versionCode // 设置versionCode, 实际值为当前git仓库的提交数
-        versionName AutoVersion.versionName // 设置versionName, 等同于"$major.$minor.$patch.$versionCode"
+        versionCode autoVersion.code // 设置versionCode, 实际值autoVersion.build，若未指定，则为当前git仓库的提交数
+        versionName autoVersion.name // 设置versionName, 等同于"$major.$minor.$patch.$versionCode"
 		...
     }
 	...
 }
+```
+
+如果工作正常，Gradle console 在 sync 时打印一下信息。
+
+```
+AutoVersion:versionCode: xxx
+AutoVersion:versionName: x.x.x.x
 ```

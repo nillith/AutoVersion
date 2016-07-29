@@ -1,8 +1,14 @@
-import com.nillith.android.tools.build.version.AutoVersion
-
 apply plugin: 'com.android.application'
+apply plugin: 'com.nillith.autoversion'
 
-AutoVersion.setVersionNumber(0,1,0)
+
+autoVersion {
+    major 1
+    minor 0
+    patch 0
+//    build 0
+}
+
 
 android {
     compileSdkVersion 23
@@ -12,8 +18,8 @@ android {
         applicationId "com.nillith.android.demo"
         minSdkVersion 16
         targetSdkVersion 23
-        versionCode AutoVersion.versionCode
-        versionName AutoVersion.versionName
+        versionCode autoVersion.code
+        versionName autoVersion.name
     }
     buildTypes {
         release {
@@ -27,4 +33,5 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.3.0'
+    compile project(':autoversion')
 }

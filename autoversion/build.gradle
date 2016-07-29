@@ -1,0 +1,42 @@
+apply plugin: 'groovy'
+
+
+sourceSets {
+    main {
+        groovy {
+            srcDirs '/groovy'
+        }
+    }
+}
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'AutoVersion'
+
+    publishedGroupId = 'com.nillith.android'
+    libraryName = 'AutoVersion'
+    artifact = 'autoversion'
+
+    libraryDescription = 'Generating versionCode and versionName automatically'
+
+    siteUrl = 'https://github.com/nillith/AutoVersion'
+    gitUrl = 'https://github.com/nillith/AutoVersion.git'
+
+    libraryVersion = '1.2.0'
+
+    developerId = 'nillith'
+    developerName = 'nillith'
+    developerEmail = 'nillith@outlook.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+}
+
+apply from: '../install.gradle'
+apply from: '../bintray.gradle'
