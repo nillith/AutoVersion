@@ -1,11 +1,11 @@
 ﻿# AutoVersion
-Android Studio根据git仓库提交数自动生成安卓versionCode和versionName。
+Android studio 管理 app versionCode和versionName的gradle插件。可以根据git仓库提交数自动更新versionCode。
 
 *其他语言版本: [English](README.md), [简体中文](README.zh-cn.md).*
 
 ### 使用方法
-####1 添加 gradle **buildscript** 依赖
-在project级build.gradle文件中
+####1 添加 依赖
+在rott project 的build.gradle文件中
 ```groovy
 buildscript {
 	...
@@ -14,18 +14,18 @@ buildscript {
     }
 }
 ```
-####2 配置android config：
-在Module级的build.gradle文件中
+####2 配置
+在app Module 的build.gradle文件中
 ```groovy
 ...
 apply plugin: 'com.nillith.autoversion'
 
+// 配置各版本号。
 autoVersion {
     major 1
     minor 0
     patch 0
-    // 你也可以在这里自己给定build。这样build版本号将不会自动生成。
-    // build 0
+    // build 0 // 若这里指定了build版本号。versionCode将不会根据提交数自动更新
 }
 
 android {

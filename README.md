@@ -1,11 +1,12 @@
 ﻿# AutoVersion
-Generating versionCode and versionName automatically for Android Project With Android Studio based on git commit count
+Gradle plugin for managing android app versionCode and versionName. Auto update versionCode on every git commit.
 
 *Read this in other languages: [English](README.md), [简体中文](README.zh-cn.md).*
 
 ### How to use
-####1 Add gradle **buildscript** dependencies
-In your root project level build.gradle
+####1 Dependencies
+
+In root project build.gradle file
 ```groovy
 buildscript {
 	...
@@ -15,19 +16,18 @@ buildscript {
     }
 }
 ```
-####2 Setup android config
-In you module level build.gradle
+####2 Config
+In you app module build.gradle file
 ```groovy
-
 ...
 apply plugin: 'com.nillith.autoversion'
 
+// Config your version numbers here. 
 autoVersion {
     major 1
     minor 0
     patch 0
-    // You can also specify a build here. AutoVersion will use it instead of git commit count.
-    // build 3
+    // build 3 // You can provide your own build number to disable auto versionCode update.
 }
 
 
@@ -35,8 +35,8 @@ android {
 ...
     defaultConfig {
         ...
-        versionCode autoVersion.code // same as build. build will be the commit count of current git repo if not specified.
-        versionName autoVersion.name // same as "$major.$minor.$patch.$versionCode"
+        versionCode autoVersion.code // same as build.
+        versionName autoVersion.name // same as "$major.$minor.$patch.$build"
 		...
     }
 	...
