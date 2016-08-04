@@ -48,3 +48,7 @@ If doing right. Gradle console will print the following message when sync
 AutoVersion:versionCode: xxx
 AutoVersion:versionName: x.x.x.x
 ```
+
+## License
+
+Nillith, 2016. Licensed under an [Apache-2](LICENSE.txt) license.
