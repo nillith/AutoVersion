@@ -25,7 +25,7 @@ autoVersion {
     major 1
     minor 0
     patch 0
-    // build 0 // 若这里指定了build版本号。versionCode将不会自动更新
+    // build 0 // 若不想自动更新versionCode，可以在这里指定了build版本号。AutoVersion将使用这个值作为versionCode
 }
 
 android {
