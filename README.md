@@ -17,7 +17,7 @@ buildscript {
 }
 ```
 ####2 Config
-In you app module build.gradle file
+In app module build.gradle file
 ```groovy
 ...
 apply plugin: 'com.nillith.autoversion'
