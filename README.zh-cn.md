@@ -4,8 +4,8 @@ Android studio 管理 app versionCode和versionName的gradle插件。可以根�
 *其他语言版本: [English](README.md), [简体中文](README.zh-cn.md).*
 
 ### 使用方法
-####1 添加 依赖
-在rott project 的build.gradle文件中
+####1 添加依赖
+在root project 的build.gradle文件中
 ```groovy
 buildscript {
 	...
@@ -25,15 +25,15 @@ autoVersion {
     major 1
     minor 0
     patch 0
-    // build 0 // 若这里指定了build版本号。versionCode将不会根据提交数自动更新
+    // build 0 // 若这里指定了build版本号。versionCode将不会自动更新
 }
 
 android {
 ...
     defaultConfig {
         ...
-        versionCode autoVersion.code // 设置versionCode, 实际值autoVersion.build，若未指定，则为当前git仓库的提交数
-        versionName autoVersion.name // 设置versionName, 等同于"$major.$minor.$patch.$versionCode"
+        versionCode autoVersion.code // 实际值为autoVersion.build，若未指定，则为当前git仓库的提交数
+        versionName autoVersion.name // 等同于"$major.$minor.$patch.$versionCode"
 		...
     }
 	...
